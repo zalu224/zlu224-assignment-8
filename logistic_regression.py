@@ -141,6 +141,11 @@ def do_experiments(start, end, step_num):
     plt.xlabel("Shift Distance")
     plt.ylabel("Beta1 / Beta2")
 
+    # Calculate appropriate y-limits based on actual slope values
+    y_min = min(slope_list)
+    y_max = max(slope_list)
+    margin = (y_max - y_min) * 0.1  # Add 10% margin
+    plt.ylim(y_min - margin, y_max + margin)  # Remove fixe
 
     # Plot beta0 / beta2 (Intercept ratio)
     plt.subplot(3, 3, 5)
